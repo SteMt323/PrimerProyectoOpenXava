@@ -11,6 +11,12 @@ import lombok.*;
 
 @Entity
 @Getter @Setter
+@View(members =
+            "anio, numero, fecha;" +
+            "cliente;"+
+            "detalles;"+
+            "observaciones"
+    )
 public class Factura {
     @Id
     @GeneratedValue(generator = "system-uuid")
@@ -38,6 +44,7 @@ public class Factura {
 
 
     @ManyToOne(fetch=FetchType.LAZY, optional=false)
+    @ReferenceView("Simple")
     Cliente cliente;
 
     @ElementCollection
