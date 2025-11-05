@@ -1,2 +1,6 @@
 /*C3*/SET SCHEMA PUBLIC
 DISCONNECT
+/*C4*/SET SCHEMA PUBLIC
+create table Autor (oid varchar(32) not null, nombre varchar(50), primary key (oid))
+alter table Producto add column autor_oid varchar(32)
+alter table Producto add constraint FKmtkejrnklbkimttu99b9jqufw foreign key (autor_oid) references Autor
